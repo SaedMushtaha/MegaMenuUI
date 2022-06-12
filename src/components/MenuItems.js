@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect, useRef } from "react";
 import Dropdown from "./Dropdown";
 import { menuItems } from "../menuItems";
+import { Label } from '@fluentui/react/lib/Label';
 
 const fontsiz = {
     fontSize : "20px"
@@ -43,7 +44,7 @@ const MenuItems = ({ items, depthLevel }) => {
         {items.submenu ? (
         <>
           <button type="button" aria-haspopup="menu" aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)}>
-          <a  href={'#'}>{items.title}</a> 
+         <Label> <a  href={'#'}>{items.title}</a> </Label>
           {/* {depthLevel} */}
             {/* {depthLevel > 0 ? <span></span> : <span></span> } */}
             {/* <span className="arrow" /> */}
@@ -52,12 +53,12 @@ const MenuItems = ({ items, depthLevel }) => {
           <>
           {/* {depthLevel} */}
 <button type="button" aria-haspopup="menu" aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)}>
-{depthLevel >= 2   ? <a style={fontsiz} href={'#'}>{items.title}</a> :  <a href={'#'}>{items.title}</a>}
+{depthLevel >= 2   ? <Label><a style={fontsiz} href={'#'}>{items.title}</a> </Label>: <Label> <a href={'#'}>{items.title}</a></Label>}
             {/* {depthLevel > 0 ? <span></span> : <span></span> } */}
             {/* <span className="arrow" /> */}
           </button>
           {items.submenu.map((item) => (
-            <li class="nav-item" key={item.id}><a href="#" class="nav-link text-small pb-0">{item.title}</a></li>
+            <li class="nav-item" key={item.id}><Label><a href="#" class="nav-link text-small pb-0">{item.title}</a></Label></li>
       
     ))}
         
@@ -74,7 +75,7 @@ const MenuItems = ({ items, depthLevel }) => {
 
         <span>
   
-            {depthLevel >= 2   ?  <a style={fontsiz} href={'#'}>{items.title}</a> : <a href={'#'}>{items.title}</a>}  
+            {depthLevel >= 2   ?  <Label><a style={fontsiz} href={'#'}>{items.title}</a></Label> : <Label><a href={'#'}>{items.title}</a></Label>}  
             </span>  
 
       )}

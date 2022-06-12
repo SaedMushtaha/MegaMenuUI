@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./settings.css";
-
+import {ButtonUI} from './ButtonUI'
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -80,7 +80,7 @@ const App = () => {
     <h6>Add Navigations entries</h6>
     here is an example of how section can be used to group inputs
     
-   
+   <ButtonUI></ButtonUI>
     <br></br>
     {/* <input type="search" placeholder="Search in items"></input> */}
     {/* <div className="search">

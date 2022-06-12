@@ -6,7 +6,7 @@ import NavBar from './components/NavBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  import {  faBars } from '@fortawesome/free-solid-svg-icons';
  import { BrowserRouter, Route, Routes } from 'react-router-dom';
- import Settings from './components/Settings';
+ import {SettingsPage} from './components/SettingsPage';
 import Navigation from './components/Navigation';
 
 
@@ -37,7 +37,7 @@ export const App: React.FunctionComponent = () => {
         </div>
         <BrowserRouter>
              <Routes>
-              <Route path="/settings/" element={<Settings />} />
+              <Route path="/settings/" element={<SettingsPage />} />
               </Routes>
               </BrowserRouter>
     </>
