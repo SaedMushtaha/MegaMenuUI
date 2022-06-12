@@ -12,6 +12,14 @@ export const menuItems = [
           submenu: [
             {
               title: "My Career and Benefits",
+              submenu: [
+                {
+                  title: "Career",
+                },
+                {
+                  title: "Benefits",
+                },
+              ],
             },
             {
               title: "Travel and expense",
@@ -57,6 +65,14 @@ export const menuItems = [
           submenu: [
             {
               title: "My Career and Benefits",
+              submenu: [
+                {
+                  title: "Career",
+                },
+                {
+                  title: "Benefits",
+                },
+              ],
             },
             {
               title: "Travel and expense",

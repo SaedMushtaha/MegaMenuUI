@@ -96,4 +96,5 @@ export const SettingsPage: React.FunctionComponent = () => {
 
 
   );
+  
 };

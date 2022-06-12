@@ -7,6 +7,8 @@ import { createListItems, IExampleItem } from '@fluentui/example-data';
 import { useConst } from '@fluentui/react-hooks';
 
 import { menuItems } from "../menuItems";
+
+
 var storedNames = JSON.parse(localStorage.getItem("names") || "");
 const theme: ITheme = getTheme();
 const { palette, semanticColors, fonts } = theme;
