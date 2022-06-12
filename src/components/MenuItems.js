@@ -58,7 +58,7 @@ const MenuItems = ({ items, depthLevel }) => {
             {/* <span className="arrow" /> */}
           </button>
           {items.submenu.map((item) => (
-            <li class="nav-item" key={item.id}><Label><a href="#" class="nav-link text-small pb-0">{item.title}</a></Label></li>
+            <li class="nav-item" key={item.id}><Label><a href="#" class="nav-link">{item.title}</a></Label></li>
       
     ))}
         
@@ -75,8 +75,10 @@ const MenuItems = ({ items, depthLevel }) => {
 
         <span>
   
-            {depthLevel >= 2   ?  <Label><a style={fontsiz} href={'#'}>{items.title}</a></Label> : <Label><a href={'#'}>{items.title}</a></Label>}  
-            </span>  
+            {depthLevel >= 2   ?  <button type="button" aria-haspopup="menu">
+        <Label><a style={fontsiz} href={'#'}>{items.title}</a></Label> </button>: <button type="button" aria-haspopup="menu"> <Label><a href={'#'}>{items.title}</a></Label>  </button> }  
+            </span>
+           
 
       )}
             

@@ -48,8 +48,9 @@ export const SettingsPage: React.FunctionComponent = () => {
     <h6>Add Navigations entries</h6>
     here is an example of how section can be used to group inputs
     <Stack horizontal tokens={stackTokens}>
+       <PrimaryButton text="+ Add Entry" className="bkcolor"/>
    <TextField ariaLabel="Required without visible label" required />
-   <PrimaryButton text="+ Add Entry" />
+  
       </Stack>
 
       <BasicList></BasicList>
@@ -60,9 +61,12 @@ export const SettingsPage: React.FunctionComponent = () => {
    {/* <ButtonUI></ButtonUI> */}
     <br></br>
    <div className="nav-area">      
-        <nav>
+        <nav className="divright">
    <ul className="menus">
-
+   <Stack horizontal tokens={stackTokens}>
+      <DefaultButton text="Discard" />
+      <PrimaryButton text="Save"   className="bkcolor"/>
+    </Stack>
     {/* {listData.list.map((menu, index) => {
       //  return <MenuItems items={menu} key={index} />;
       (
