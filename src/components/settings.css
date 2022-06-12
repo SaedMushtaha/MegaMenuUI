@@ -1,0 +1,71 @@
+/* 
+.megamenu {
+  position: static!important;
+}
+.megamenu .dropdown-menu {
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+code {
+  color: #745eb1;
+  background: #fff;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.2rem;
+}
+.text-uppercase {
+  letter-spacing: 0.08em;
+}
+.MegaMenuDiv{
+  background: center center 
+  url(https://therichpost.com/wp-content/uploads/2020/07/Create-your-first-page-in-reactjs-with-bootstrap.png)no-repeat; 
+  background-size: cover;
+} */
+
+
+.number{
+   
+    background: #6264A7;  
+border-radius: 0.8em;  
+-moz-border-radius: 0.8em;  
+-webkit-border-radius: 0.8em;  
+color: #ffffff;  
+display: inline-block;  
+font-weight: bold;  
+line-height: 1.6em;  
+margin-right: 5px;  
+text-align: center;  
+width: 1.6em;  
+   
+     
+}
+
+
+.margintop{
+   margin-top : 15px;
+}
+
+
+.borderright{
+   border-right: 2px solid #E7E7E7;
+}
+
+.borderbottom{
+   border-bottom: 2px solid #E7E7E7;
+}
+
+.alink{
+   text-decoration: none;
+    color: inherit;
+}
+
+
+.newcolor{
+ background-color: #6264A7;
+ color:#ffffff
+}
+
+.dropdown{
+    position: absolute;
+}
