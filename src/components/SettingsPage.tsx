@@ -45,10 +45,10 @@ export const SettingsPage: React.FunctionComponent = () => {
     <Col xs={12} md={8}>
     <Label><h6 className="font-weight-bold text-uppercase"><b>Configure Navigation</b></h6></Label>
     The mega Menu can be configured here <br></br>
-    <h6>Add Navigations entries</h6>
+    <h6 className="topspace">Add Navigations entries</h6>
     here is an example of how section can be used to group inputs
-    <Stack horizontal tokens={stackTokens}>
-       <PrimaryButton text="+ Add Entry" className="bkcolor"/>
+    <Stack horizontal tokens={stackTokens} className="topspace">
+       <PrimaryButton text="+ Add Entry" className="bkcolor" />
    <TextField ariaLabel="Required without visible label" required />
   
       </Stack>
@@ -96,5 +96,4 @@ export const SettingsPage: React.FunctionComponent = () => {
 
 
   );
-  
 };
