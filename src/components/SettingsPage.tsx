@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { TextField, MaskedTextField } from '@fluentui/react/lib/TextField';
 import { Stack, IStackProps, IStackStyles } from '@fluentui/react/lib/Stack';
 import { Label } from '@fluentui/react/lib/Label';
@@ -8,6 +9,12 @@ import imgg from '../open-in-new-tab-icon-12.jpg';
 import "./settings.css";
 import { DefaultButton, PrimaryButton } from '@fluentui/react/lib/Button';
 import { BasicList } from './BasicList';
+import { SearchBox, ISearchBoxStyles } from '@fluentui/react/lib/SearchBox';
+
+import {menuItems} from "../menuItems";
+import { v4 as uuidv4 } from 'uuid';
+
+const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { width: 250 } };
 
 const stackTokens = { childrenGap: 50 };
 const iconProps = { iconName: 'Calendar' };
@@ -18,6 +25,37 @@ const columnProps: Partial<IStackProps> = {
 };
 
 export const SettingsPage: React.FunctionComponent = () => {
+
+
+const listReducer = (state:any, action:any) => {
+    switch (action.type) {
+      case 'ADD_ITEM':
+        return {
+          ...state,
+          list: state.list.concat({ name: action.name, id: action.id }),
+        };
+      default:
+        throw new Error();
+    }
+  };
+  
+  const [listData, dispatchListData] = React.useReducer(listReducer, {
+    list: menuItems,
+    isShowList: true,
+  });
+  const [name, setName] = React.useState('');
+
+  function handleChange(event:any) {
+    setName(event.target.value);
+  }
+
+  function handleAdd() {
+    dispatchListData({ type: 'ADD_ITEM', name, id: uuidv4() });
+
+    setName('');
+  }
+
+
   return (
 
     <Container>
@@ -48,17 +86,31 @@ export const SettingsPage: React.FunctionComponent = () => {
     <h6 className="topspace">Add Navigations entries</h6>
     here is an example of how section can be used to group inputs
     <Stack horizontal tokens={stackTokens} className="topspace">
-       <PrimaryButton text="+ Add Entry" className="bkcolor" />
-   <TextField ariaLabel="Required without visible label" required />
+       <PrimaryButton text="+ Add Entry" className="bkcolor" onClick={handleAdd} />
+       <TextField ariaLabel="Required without visible label" onChange={handleChange} required />
+       <SearchBox
+    styles={searchBoxStyles}
+    placeholder="Search for a navigation entry" 
+    onEscape={ev => {
+      console.log('Custom onEscape Called');
+    }}
+    onClear={ev => {
+      console.log('Custom onClear Called');
+    }}
+    onChange={(_, newValue) => console.log('SearchBox onChange fired: ' + newValue)}
+    onSearch={newValue => console.log('SearchBox onSearch fired: ' + newValue)}
+  />
+ 
   
       </Stack>
 
-      <BasicList></BasicList>
-{/* 
-      <DetailsList></DetailsList> */}
+      {/* <BasicList></BasicList> */}
 
-
-   {/* <ButtonUI></ButtonUI> */}
+    <ul>
+      {listData.list.map((item:any) => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
     <br></br>
    <div className="nav-area">      
         <nav className="divright">
@@ -67,27 +119,11 @@ export const SettingsPage: React.FunctionComponent = () => {
       <DefaultButton text="Discard" />
       <PrimaryButton text="Save"   className="bkcolor"/>
     </Stack>
-    {/* {listData.list.map((menu, index) => {
-      //  return <MenuItems items={menu} key={index} />;
-      (
-      <li className="menu-items" key={index}>
-       <a href="/#">{menu.name}</a>
-      </li>
-     );
-    })} */}
    </ul>
   </nav>
       </div>
-    <div>
-      {/* <AddItem
-        name={name}
-        onChange={handleChange}
-        onAdd={handleAdd}
-      />
-
-      <List list={listData.list} /> */}
-    </div>
-   
+    
+    
     </Col>
    </Row>
  </Container>
@@ -97,3 +133,10 @@ export const SettingsPage: React.FunctionComponent = () => {
 
   );
 };
+
+
+  
+
+
+
+
