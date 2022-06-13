@@ -13,6 +13,7 @@ import { SearchBox, ISearchBoxStyles } from '@fluentui/react/lib/SearchBox';
 
 import {menuItems} from "../menuItems";
 import { v4 as uuidv4 } from 'uuid';
+import internal from 'stream';
 
 const searchBoxStyles: Partial<ISearchBoxStyles> = { root: { width: 250 } };
 
@@ -28,8 +29,14 @@ export const SettingsPage: React.FunctionComponent = () => {
 
 
 const listReducer = (state:any, action:any) => {
-    switch (action.type) {
-      case 'ADD_ITEM':
+ 
+    const items = JSON.parse(localStorage.getItem("names") || '{}');
+    const newItems = JSON.stringify([...items,{title:action.name, id: action.id , name:action.name}])
+    localStorage.setItem("names",newItems);
+ 
+   
+    switch (action.type) {   
+      case 'ADD_ITEM':   
         return {
           ...state,
           list: state.list.concat({ name: action.name, id: action.id }),
@@ -39,8 +46,11 @@ const listReducer = (state:any, action:any) => {
     }
   };
   
+
+
   const [listData, dispatchListData] = React.useReducer(listReducer, {
-    list: menuItems,
+    
+    list:JSON.parse(localStorage.getItem("names") || '{}' ),  
     isShowList: true,
   });
   const [name, setName] = React.useState('');
