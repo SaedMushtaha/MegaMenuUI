@@ -66,6 +66,12 @@ const listReducer = (state:any, action:any) => {
   }
 
 
+  
+  function savebutton() {
+    window.location.reload();
+  }
+
+
   return (
 
     <Container>
@@ -127,7 +133,7 @@ const listReducer = (state:any, action:any) => {
    <ul className="menus">
    <Stack horizontal tokens={stackTokens}>
       <DefaultButton text="Discard" />
-      <PrimaryButton text="Save"   className="bkcolor"/>
+      <PrimaryButton text="Save"  onClick={savebutton}  className="bkcolor"/>
     </Stack>
    </ul>
   </nav>
