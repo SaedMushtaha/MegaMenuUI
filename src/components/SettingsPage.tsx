@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import imgg from '../open-in-new-tab-icon-12.jpg';
 import "./settings.css";
 import { DefaultButton, PrimaryButton } from '@fluentui/react/lib/Button';
-import { BasicList } from './BasicList';
 import { SearchBox, ISearchBoxStyles } from '@fluentui/react/lib/SearchBox';
 
 import {menuItems} from "../menuItems";
