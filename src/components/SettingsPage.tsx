@@ -9,7 +9,6 @@ import imgg from '../open-in-new-tab-icon-12.jpg';
 import "./settings.css";
 import { DefaultButton, PrimaryButton } from '@fluentui/react/lib/Button';
 import { SearchBox, ISearchBoxStyles } from '@fluentui/react/lib/SearchBox';
-
 import {menuItems} from "../menuItems";
 import { v4 as uuidv4 } from 'uuid';
 import internal from 'stream';
@@ -29,11 +28,7 @@ export const SettingsPage: React.FunctionComponent = () => {
 
 const listReducer = (state:any, action:any) => {
  
-    const items = JSON.parse(localStorage.getItem("names") || '{}');
-    const newItems = JSON.stringify([...items,{title:action.name, id: action.id , name:action.name}])
-    localStorage.setItem("names",newItems);
- 
-   
+
     switch (action.type) {   
       case 'ADD_ITEM':   
         return {
@@ -59,8 +54,13 @@ const listReducer = (state:any, action:any) => {
   }
 
   function handleAdd() {
-    dispatchListData({ type: 'ADD_ITEM', name, id: uuidv4() });
 
+    dispatchListData({ type: 'ADD_ITEM', name, id: uuidv4() });
+    const items = JSON.parse(localStorage.getItem("names") || '{}');
+    const newItems = JSON.stringify([...items,{title:name, name:name}])
+    localStorage.setItem("names",newItems);
+ 
+   
     setName('');
   }
 
@@ -119,7 +119,7 @@ const listReducer = (state:any, action:any) => {
   
       </Stack>
 
-      {/* <BasicList></BasicList> */}
+
 
     <ul>
       {listData.list.map((item:any) => (
